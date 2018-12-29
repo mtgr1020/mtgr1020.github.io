@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[2018年终总结+2019展望]]></title>
+    <url>%2F2018%2F12%2F29%2F2018%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93-2019%E5%B1%95%E6%9C%9B%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[hexo博客搭建问题总汇]]></title>
     <url>%2F2018%2F12%2F27%2Fhexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E9%97%AE%E9%A2%98%E6%80%BB%E6%B1%87%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[前言&nbsp;&nbsp;&nbsp;&nbsp;18年9月份的时候，我开始想写一些文章来记录自己的学习总结，最初考虑在云服务器来搭建个人的博客，but我找了一下没想好到底怎么做，就先在CSDN上开始简单写一些简单的博客。 光阴似箭，一晃这就来到12月中旬，终于有闲暇的时间好好研究搭建博客的事情，最终定下来用Hexo+GitHub Pages免费托管,感谢Hank ZHU博主的技术分享，给予我Ctrl+C、Ctrl+V搭建博客的机会，在此总结记录下并会不断改进优化。 基础搭建]]></content>
       <categories>
         <category>技术分享</category>
       </categories>
