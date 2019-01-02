@@ -8,7 +8,7 @@
   <entry>
     <title><![CDATA[hexo博客搭建问题总汇]]></title>
     <url>%2F2018%2F12%2F27%2Fhexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E9%97%AE%E9%A2%98%E6%80%BB%E6%B1%87%2F</url>
-    <content type="text"><![CDATA[前言&nbsp;&nbsp;&nbsp;&nbsp;18年9月份的时候，我开始想写一些文章来记录自己的学习总结，最初考虑在云服务器来搭建个人的博客，but我找了一下没想好到底怎么做，就先在CSDN上开始简单写一些简单的博客。 光阴似箭，一晃这就来到12月中旬，终于有闲暇的时间好好研究搭建博客的事情，最终定下来用Hexo+GitHub Pages免费托管,感谢Hank ZHU博主的技术分享，给予我Ctrl+C、Ctrl+V搭建博客的机会，在此总结记录下并会不断改进优化。 基础搭建]]></content>
+    <content type="text"><![CDATA[前言&nbsp;&nbsp;&nbsp;&nbsp;18年9月份的时候，我开始想写一些文章来记录自己的学习总结，最初考虑在云服务器来搭建个人的博客，but我找了一下没想好到底怎么做，就先在CSDN上开始简单写一些简单的博客。 光阴似箭，一晃这就来到12月中旬，终于有闲暇的时间好好研究搭建博客的事情，最终定下来用Hexo+GitHub Pages免费托管,感谢Hank ZHU博主的技术分享，给予我Ctrl+C、Ctrl+V搭建博客的机会，在此总结记录下并会不断改进优化。 基础搭建 申请GitHub帐号 安装Node &nbsp;&nbsp;&nbsp;&nbsp;上边两个不做过多介绍，安装node以后在安装Hexo,安装命令npm install hexo-cli -g全局安装 &gt; 找个放置博客源文件的目录hexo init blogName 建立博客 &gt; cd blogName进入博客目录 &gt; npm install安装Hexo依赖 &gt; hexo server 在终端输出中看到可以在localhost:4000访问了,默认端口4000可更改。具体Hexo使用可以去Hexo官网自己研究很简单，稍微复杂的是博客主题配置。怎么现在你就看到你的博客了，很简单吧！ 我们的最终目的，还是要所有人可以访问我们的博客，那肯定需要一个服务器来托管，这时候GitHub Pages可以满足我们的需求。登陆GitHub帐号，新建一个项目名称为(你的GitHub用户名).github.io 安装 hexo-deployer-git1npm install hexo-deployer-git --save 配置git发布地址我们在上面安装的hexo-deployer-git是一个博客发布插件，具体用法稍后介绍，我们首先要找到blogName下的_config.yml配置文件配置deploy，repo粘贴你的github项目地址，如果想配置分支可以加上branch: master如果初次使用GitHub需要一些配置，可以参考初次安装git配置,都完成以后就可以使用命令1hexo clean &amp;&amp; hexo g &amp;&amp; hexo d 然后在浏览器输入***.github.io,就可以看到你的博客了，会有一些延迟不要着急，先检查有没有上传到你的github上去。 主题配置]]></content>
       <categories>
         <category>技术分享</category>
       </categories>
