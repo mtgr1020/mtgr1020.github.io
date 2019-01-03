@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-29T07:29:06.598Z</updated>
+  <updated>2019-01-03T09:29:28.516Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一个简易的Android-WebView开发笔记</title>
+    <link href="http://yoursite.com/2019/01/03/%E4%B8%80%E4%B8%AA%E7%AE%80%E6%98%93%E7%9A%84Android-WebView%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/2019/01/03/一个简易的Android-WebView开发笔记/</id>
+    <published>2019-01-03T08:10:40.000Z</published>
+    <updated>2019-01-03T09:29:28.516Z</updated>
+    
+    <content type="html"><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;前段时间做了一个创新周的项目，需要在电视上展示，当时是用笔记本投屏，展会以后我就在想做一个安卓应用在电视上安装，省去投屏的烦恼，上午就找到了<code>少侠好剑法</code>同学进行技术上的指导，让我这个安卓小白也拥有了自己的应用，特此记录以供参考。</p><h1 id="下载安卓开发工具"><a href="#下载安卓开发工具" class="headerlink" title="下载安卓开发工具"></a>下载安卓开发工具</h1><p>好剑少侠给我推荐的开发工具是<a href="http://www.android-studio.org/index.php/download/hisversion" target="_blank" rel="noopener">android studio</a>版本3.0，少侠说3.0以上的有问题<br><img src=""></p><p>下载完毕以后就点击安装，我的是mac其他系统没有尝试，但是问题应该类似，首先会出来一个提示<br><img src="http://pkhjrimz1.bkt.clouddn.com/WechatIMG30.png" width="50%" height="50%"><br>我的操作步骤是点击<code>Setup Proxy</code>,然后勾选第二个自动，在到这个页面点击Cancel,然后就会开始下载<br><img src="http://pkhjrimz1.bkt.clouddn.com/WechatIMG37.png" width="70%" height="70%"><br>完成以后就会出来一个提示页，点击<code>Start a new Android Studio project</code>创建一个新的项目，在 select SDK的时候勾选第一个就OK了，进入主页面以后，看最下边的message中会有一些错误提示，点击<br><img src="http://pkhjrimz1.bkt.clouddn.com/WechatIMG48.jpeg"><br>开始安装就可以了，都装好以后拿出来你的安卓手机，找到开发者选项，在开发者模式中把USB调试打开，点击下图中的绿色按钮<br><img src="http://pkhjrimz1.bkt.clouddn.com/WX20190103-170032@2x.png" width="60%" height="60%"><br>如果不出意外的话，手机上就会出现一个hello world。</p><h1 id="C、V大法"><a href="#C、V大法" class="headerlink" title="C、V大法"></a>C、V大法</h1><h2 id="布局界面"><a href="#布局界面" class="headerlink" title="布局界面"></a>布局界面</h2><p>文件目录：***/app/src/main/res/layout/activity_main.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line"></span><br><span class="line">&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">android:layout_width=&quot;match_parent&quot;</span><br><span class="line">android:layout_height=&quot;match_parent&quot;</span><br><span class="line">android:orientation=&quot;vertical&quot;</span><br><span class="line">android:background=&quot;#F0FFF0&quot; &gt;</span><br><span class="line"></span><br><span class="line">    &lt;WebView</span><br><span class="line">        android:id=&quot;@+id/web&quot;</span><br><span class="line">        android:layout_width=&quot;fill_parent&quot;</span><br><span class="line">        android:layout_height=&quot;fill_parent&quot; /&gt;</span><br><span class="line"></span><br><span class="line">&lt;/LinearLayout&gt;</span><br></pre></td></tr></table></figure></p><h2 id="Activity页面"><a href="#Activity页面" class="headerlink" title="Activity页面"></a>Activity页面</h2><p>文件目录： ***/app/src/main/java/com/example/～/～/MainActivity.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">public class MainActivity extends Activity &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line"></span><br><span class="line">        super.onCreate(savedInstanceState);</span><br><span class="line"></span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        WebView web=(WebView) findViewById(R.id.web);</span><br><span class="line">        web.loadUrl(&quot;https://www.baidu.com/&quot;);</span><br><span class="line"></span><br><span class="line">        web.getSettings().setJavaScriptEnabled(true);  //加上这一行网页为响应式的</span><br><span class="line">        web.setWebViewClient(new WebViewClient()&#123;</span><br><span class="line">            @Override</span><br><span class="line">            public boolean shouldOverrideUrlLoading(WebView view, String url) &#123;</span><br><span class="line">                view.loadUrl(url);</span><br><span class="line">                return true;   //返回true， 立即跳转，返回false,打开网页有延时</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>这个会遇到你粘贴过去都飘红，是因为有些包没有import，mac操作快捷键是option+enter，import以后就正常了。</p><h2 id="添加网络权限"><a href="#添加网络权限" class="headerlink" title="添加网络权限"></a>添加网络权限</h2><p>文件目录： ***/app/src/main/AndroidManifest.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; &gt;&lt;/uses-permission&gt;</span><br><span class="line">&lt;application    在此之前添加以上代码</span><br></pre></td></tr></table></figure></p><p>搞定了～在点击运行即可在手机上看到webview。</p><h1 id="打包APK"><a href="#打包APK" class="headerlink" title="打包APK"></a>打包APK</h1><p>如有兴趣请<a href="https://jingyan.baidu.com/article/c843ea0bbfae3777931e4ac3.html" target="_blank" rel="noopener">点击此处</a>,唯一不同的就是在最后一步把V1V2都勾上，别的按照那个网页来就行，少侠好剑法要求我这么点的，最后出一个提示<br><img src="http://pkhjrimz1.bkt.clouddn.com/WechatIMG209.png"><br>最后apk地址在/***/app/release/ 下边，可以复制到安卓手机、电视端进行安装就可以了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;前段时间做了一个创新周的项目，需要在电视上展示，当时是用笔记本投屏，展会以后我就在想做一个安卓应用在电视上安装，省去投屏的烦恼，上午就找到了&lt;code&gt;少侠好剑法&lt;/code&gt;同学进行技术上的指导，让我这个安卓小白也拥有了自己
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>2018年终总结+2019展望</title>
